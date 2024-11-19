@@ -7,7 +7,7 @@
     android:paddingRight="@dimen/activity_horizontal_margin_altered"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin"
-    android:background="@color/background_grey"
+    android:background="@color/background_white"
     tools:context="org.woheller69.audiometry.Pre_Calibration"
     android:orientation="vertical"
     android:gravity="center_vertical"
@@ -19,7 +19,7 @@
             android:text="@string/title_calibration"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:textColor="@color/orange"/>
+            android:textColor="@color/black"/>
          <ScrollView
           android:layout_width="match_parent"
           android:layout_height="0dp"
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="@string/pre_calibration_info_body"
-                android:textColor="@color/white" />
+                android:textColor="@color/black" />
               <TextView
                   android:id="@+id/pre_calibration_info_simple"
                   android:layout_marginTop="15sp"
@@ -49,7 +49,7 @@
                   android:layout_height="wrap_content"
                   android:textSize="20sp"
                   android:text="@string/pre_calibration_info_simple"
-                  android:textColor="@color/white" />
+                  android:textColor="@color/black" />
               <TextView
                   android:id="@+id/pre_calibration_info_full"
                   android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
                   android:layout_marginRight="@dimen/activity_horizontal_margin"
                   android:layout_marginBottom="15sp"
                   android:text="@string/pre_calibration_info_full"
-                  android:textColor="@color/white"
+                  android:textColor="@color/black"
                   android:textSize="20sp" />
 
               <TextView

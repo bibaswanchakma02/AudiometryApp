@@ -173,28 +173,28 @@ public class TestData extends AppCompatActivity {
         LineDataSet setRight = new LineDataSet(dataRight, getString(R.string.right));
         setRight.setCircleColor(getResources().getColor(R.color.primary_dark,getTheme()));
         setRight.setColor(getResources().getColor(R.color.primary_dark,getTheme()));
-        setRight.setValueTextColor(Color.WHITE);
+        setRight.setValueTextColor(Color.BLACK);
         setRight.setValueTextSize(12);
 
         LineData data = new LineData(setLeft,setRight);
 
         XAxis xAxis = chart.getXAxis();
-        xAxis.setTextColor(Color.WHITE);
+        xAxis.setTextColor(Color.BLACK);
         xAxis.setTextSize(15);
         YAxis leftAxis = chart.getAxisLeft();
         leftAxis.setAxisMinimum(YMIN);
         leftAxis.setAxisMaximum(YMAX);
         leftAxis.setTextSize(15);
         leftAxis.setInverted(true);
-        leftAxis.setTextColor(Color.WHITE);
+        leftAxis.setTextColor(Color.BLACK);
         YAxis rightAxis = chart.getAxisRight();
         rightAxis.setAxisMinimum(YMIN);
         rightAxis.setAxisMaximum(YMAX);
         rightAxis.setInverted(true);
         rightAxis.setTextSize(15);
-        rightAxis.setTextColor(Color.WHITE);
+        rightAxis.setTextColor(Color.BLACK);
         Legend legend = chart.getLegend();
-        legend.setTextColor(Color.WHITE);
+        legend.setTextColor(Color.BLACK);
         legend.setTextSize(15);
 
         xAxis.setValueFormatter(new IAxisValueFormatter() {

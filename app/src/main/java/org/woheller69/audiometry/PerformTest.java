@@ -40,7 +40,7 @@ public class PerformTest extends AppCompatActivity {
     public double[] thresholds_right = new double[testFrequencies.length];
     public double[] thresholds_left = new double[testFrequencies.length];
     private Context context;
-    private final Sound sound = new Sound();
+    private final ToneGenerator toneGenerator = new ToneGenerator();
     testThread testThread;
     TextView earView;
     TextView frequencyView;
@@ -194,7 +194,7 @@ public class PerformTest extends AppCompatActivity {
                         }
                         heard = false;
                         skip = false;
-                        audioTrack = sound.playSound(sound.genTone(increment, actualVolume, numSamples), s, sampleRate);
+                        audioTrack = toneGenerator.playSound(toneGenerator.genTone(increment, actualVolume, numSamples), s, sampleRate);
                         try {
                             Thread.sleep(randomTime());
                         } catch (InterruptedException e) {

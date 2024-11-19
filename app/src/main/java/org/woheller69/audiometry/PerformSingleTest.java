@@ -7,7 +7,6 @@ import android.media.AudioTrack;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
@@ -27,7 +26,7 @@ public class PerformSingleTest extends AppCompatActivity {
     private double actualVolume = -1;
     private Context context;
     double[] calibrationArray = new double[testFrequencies.length];
-    private final Sound sound = new Sound();
+    private final ToneGenerator toneGenerator = new ToneGenerator();
     testThread testThread;
     TextView earView;
     TextView dBView;
@@ -120,7 +119,7 @@ public class PerformSingleTest extends AppCompatActivity {
                 setFrequencyView(frequency);
                 setdBView(20*Math.log10(actualVolume)-calibrationArray[i]);
                 float increment = (float) (2*Math.PI) * frequency / sampleRate;
-                audioTrack = sound.playSound(sound.genTone(increment,(int) actualVolume, numSamples), s, sampleRate);
+                audioTrack = toneGenerator.playSound(toneGenerator.genTone(increment,(int) actualVolume, numSamples), s, sampleRate);
                 try {
                     Thread.sleep(randomTime());
                 } catch (InterruptedException e) {}

@@ -4,7 +4,7 @@ import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
 
-public class Sound {
+public class ToneGenerator {
     /**
      * Generates the tone based on the increment and volume, used in inner loop
      * @param increment - the amount to increment by
