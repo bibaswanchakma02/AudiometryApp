@@ -1,8 +1,9 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     namespace 'org.woheller69.audiometry'
-    compileSdkVersion 33
+    compileSdk 34
 
     defaultConfig {
         minSdkVersion 23
@@ -32,4 +33,8 @@ dependencies {
     implementation 'androidx.preference:preference:1.1.1'
     implementation 'net.lingala.zip4j:zip4j:2.9.1'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.google.firebase:firebase-auth:23.1.0'
+    implementation 'com.google.android.material:material:1.10.0'
+    implementation 'androidx.activity:activity:1.8.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
 }
