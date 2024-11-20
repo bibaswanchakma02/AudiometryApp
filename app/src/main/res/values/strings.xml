@@ -49,4 +49,12 @@
     <string name="use_low_gain">Use low gain</string>
     <string name="changeGain">Change gain</string>
     <string name="changeGainDescription">This will delete all calibration and test data. Continue?</string>
+    <string name="login">Login</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="click_to_login">Click to login</string>
+    <string name="click_to_register">Click to Register</string>
+    <string name="logout">Logout</string>
+    <string name="user">User</string>
 </resources>

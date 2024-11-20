@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "878946115035",
+    "project_id": "audiometry-auth",
+    "storage_bucket": "audiometry-auth.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:878946115035:android:094a4e44bc76ae75e21bfe",
+        "android_client_info": {
+          "package_name": "org.woheller69.audiometry"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHRDUEoBtvL_X9bxMqsTuCumRKiN96-ow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

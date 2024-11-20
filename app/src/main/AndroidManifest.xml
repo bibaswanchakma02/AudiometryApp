@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.woheller69.audiometry">
+    package="org.woheller69.audiometry" >
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32"
+        tools:ignore="ScopedStorage" />
 
     <application
         android:allowBackup="true"
@@ -13,9 +19,13 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="MainActivity"
-            android:screenOrientation="portrait"
-            android:exported="true">
+            android:name=".Registration"
+            android:exported="false"
+            android:theme="@style/AppTheme"/>
+        <activity
+            android:name=".Login"
+            android:exported="true"
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -23,55 +33,63 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="PerformSingleTest"
+            android:name=".MainActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor" >
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+        </activity>
+        <activity
+            android:name=".PerformSingleTest"
             android:label="@string/title_activity_performSingleTest"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
         <activity
-            android:name="PerformTest"
+            android:name=".PerformTest"
             android:label="@string/title_activity_performTest"
-            android:screenOrientation="portrait" >
+            android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
         <activity
-            android:name="Pre_Calibration"
+            android:name=".Pre_Calibration"
             android:label="@string/title_calibration"
-            android:screenOrientation="portrait"
-            android:parentActivityName="MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
-
         <activity
-            android:name="Info"
+            android:name=".Info"
             android:label="@string/title_activity_info"
-            android:screenOrientation="portrait"
-            android:parentActivityName="MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
-
         <activity
-            android:name="TestLookup"
+            android:name=".TestLookup"
             android:label="@string/title_activity_test_lookup"
-            android:screenOrientation="portrait"
-            android:parentActivityName="MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="MainActivity" />
         </activity>
         <activity
-            android:name="TestData"
+            android:name=".TestData"
             android:label="@string/title_activity_test_data"
-            android:screenOrientation="portrait"
-            android:parentActivityName="TestLookup">
+            android:parentActivityName=".TestLookup"
+            android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="TestLookup" />
