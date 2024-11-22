@@ -46,7 +46,7 @@ public class TestLookup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        getWindow().setStatusBarColor(getResources().getColor(R.color.primary_dark,getTheme()));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.green,getTheme()));
     }
     @Override
     protected void onResume() {

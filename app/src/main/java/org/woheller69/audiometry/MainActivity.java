@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
 
         getSupportActionBar().getThemedContext();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        getWindow().setStatusBarColor(getResources().getColor(R.color.primary_dark,getTheme()));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.green,getTheme()));
         checkShowInvisibleButtons();
 
         mRestore = registerForActivityResult(
@@ -141,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
     public void gotoInfo(View view){
-        Intent intent = new Intent(this, Info.class);
+        Intent intent = new Intent(this, Instructions.class);
         startActivity(intent);
     }
 

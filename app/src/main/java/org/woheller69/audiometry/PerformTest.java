@@ -73,23 +73,23 @@ public class PerformTest extends AppCompatActivity {
     }
 
     /**
-     * Changes background to white when called.
+     * Changes background to green when called.
      */
     Runnable bkgrndFlash = new Runnable() {
         @Override
         public void run(){
             View view = findViewById(R.id.page);
-            view.setBackgroundColor(getResources().getColor(R.color.green,getTheme()));
+            view.setBackgroundColor(getResources().getColor(R.color.test_green,getTheme()));
         }
     };
     /**
-     * Changes background color to black when called
+     * Changes background color to white when called
      */
     Runnable bkgrndFlashBlack = new Runnable() {
         @Override
         public void run(){
             View view = findViewById(R.id.page);
-            view.setBackgroundColor(getResources().getColor(R.color.background_grey,getTheme()));
+            view.setBackgroundColor(getResources().getColor(R.color.white,getTheme()));
         }
     };
 
@@ -278,7 +278,7 @@ public class PerformTest extends AppCompatActivity {
         progressView = findViewById(R.id.progress);
         intent = getIntent();
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        getWindow().setStatusBarColor(getResources().getColor(R.color.primary_dark,getTheme()));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.green,getTheme()));
     }
 
     @Override

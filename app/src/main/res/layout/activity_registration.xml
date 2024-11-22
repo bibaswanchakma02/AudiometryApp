@@ -8,6 +8,7 @@
     android:gravity="center"
     android:layout_height="match_parent"
     android:padding="15dp"
+    android:background="@color/background_grey"
     tools:context=".Registration">
 
   <TextView

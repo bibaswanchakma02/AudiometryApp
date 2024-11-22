@@ -68,7 +68,7 @@
                 android:value="MainActivity" />
         </activity>
         <activity
-            android:name=".Info"
+            android:name=".Instructions"
             android:label="@string/title_activity_info"
             android:parentActivityName=".MainActivity"
             android:screenOrientation="fullSensor" >

@@ -6,9 +6,10 @@
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
     <color name="grey">#888888</color>
-    <color name="green">#adce49</color>
+    <color name="green">#328a4f</color>
     <color name="background_grey">#424242</color>
     <color name="background_white">#ffffff</color>
     <color name= "blue">#3958ad</color>
+    <color name="test_green">#4dc944</color>
 
 </resources>

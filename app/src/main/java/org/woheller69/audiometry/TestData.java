@@ -56,7 +56,7 @@ public class TestData extends AppCompatActivity {
         context=this;
         allSavedTests=TestLookup.getAllSavedTests(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        getWindow().setStatusBarColor(getResources().getColor(R.color.primary_dark,getTheme()));
+        getWindow().setStatusBarColor(getResources().getColor(R.color.green,getTheme()));
 
         setContentView(R.layout.activity_test_data);
         Intent intent = getIntent();

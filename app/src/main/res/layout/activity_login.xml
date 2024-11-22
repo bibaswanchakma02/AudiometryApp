@@ -7,6 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:layout_height="match_parent"
+    android:background="@color/background_grey"
     android:padding="15dp"
     tools:context=".Login">
 
@@ -16,6 +17,7 @@
         android:textSize="25sp"
         android:textStyle="bold"
         android:gravity="center"
+        android:textColor="@color/black"
         android:layout_marginBottom="20dp"
         android:text="@string/login" />
 
