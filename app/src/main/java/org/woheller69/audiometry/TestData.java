@@ -85,6 +85,25 @@ public class TestData extends AppCompatActivity {
 
     }
 
+    private String getHearingLevel(double[] thresholds) {
+        double average = 0.0;
+        for (double threshold : thresholds) {
+            average += threshold;
+        }
+        average /= thresholds.length;
+
+        if (average <= 20) {
+            return "Normal";
+        } else if (average > 20 && average <= 40) {
+            return "Slight";
+        } else if (average > 40 && average <= 70) {
+            return "Moderate";
+        } else {
+            return "Extreme";
+        }
+    }
+
+
     private void draw() {
         String[] names = fileName.split("-");
         String time = DateFormat.getTimeInstance(DateFormat.SHORT).format(Long.parseLong(names[1])) + ", " + DateFormat.getDateInstance(DateFormat.SHORT).format(Long.parseLong(names[1]));
@@ -209,6 +228,17 @@ public class TestData extends AppCompatActivity {
                 return 0;
             }
         });
+
+        // Calculate hearing levels
+        String leftHearingLevel = getHearingLevel(testResults[1]);
+        String rightHearingLevel = getHearingLevel(testResults[0]);
+
+        // Display the levels in the title or a TextView
+        TextView leftLevelText = findViewById(R.id.left_level);
+        TextView rightLevelText = findViewById(R.id.right_level);
+
+        leftLevelText.setText("Left Ear: " + leftHearingLevel);
+        rightLevelText.setText("Right Ear: " + rightHearingLevel);
 
         chart.setData(data);
         chart.invalidate(); // refresh
