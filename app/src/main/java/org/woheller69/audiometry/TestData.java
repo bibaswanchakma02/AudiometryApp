@@ -2,16 +2,24 @@ package org.woheller69.audiometry;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.AxisBase;
@@ -24,6 +32,8 @@ import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -123,6 +133,11 @@ public class TestData extends AppCompatActivity {
             sharingIntent.setType("text/plain");
             sharingIntent.putExtra(Intent.EXTRA_TEXT, testdata);
             startActivity(Intent.createChooser(sharingIntent, "Share in..."));
+        });
+
+        ImageButton download = findViewById(R.id.download_button);
+        download.setOnClickListener(view-> {
+            exportAsPdf();
         });
 
         ImageButton zoom = findViewById(R.id.zoom_button);
@@ -270,5 +285,40 @@ public class TestData extends AppCompatActivity {
     public void gotoExport(){
         Intent intent = new Intent(this, TestLookup.class);
         startActivity(intent);
+    }
+
+    public void exportAsPdf(){
+
+        PdfDocument pdfDocument = new PdfDocument();
+
+
+        int chartWidth = chart.getWidth();
+        int chartHeight = chart.getHeight();
+
+        PdfDocument.PageInfo pageInfo = new PdfDocument.PageInfo.Builder(chartWidth, chartHeight, 1).create();
+        PdfDocument.Page page = pdfDocument.startPage(pageInfo);
+        Canvas canvas =  page.getCanvas();
+
+
+        chart.draw(canvas);
+
+        pdfDocument.finishPage(page);
+
+        File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+        File pdfFile = new File(downloadsDir, "TestGraph_" + System.currentTimeMillis() + ".pdf");
+
+        File file = new File(context.getExternalFilesDir(null), "Audiogram.pdf");
+        try {
+            pdfFile.getParentFile().mkdirs();
+            FileOutputStream outputStream = new FileOutputStream(pdfFile);
+            pdfDocument.writeTo(outputStream);
+            pdfDocument.close();
+            Toast.makeText(this, "PDF saved to Downloads folder: " + pdfFile.getAbsolutePath(), Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Toast.makeText(context, "Error saving PDF: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
+        // Close the PDF document
+//        pdfDocument.close();
     }
 }
