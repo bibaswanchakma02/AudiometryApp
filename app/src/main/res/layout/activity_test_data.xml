@@ -74,7 +74,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Left Ear: "
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="26sp"
                 android:layout_gravity="center_horizontal"/>
 
             <TextView
@@ -84,7 +84,7 @@
                 android:layout_marginTop="8dp"
                 android:text="Right Ear: "
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="26sp"
                 android:layout_gravity="center_horizontal"/>
 
 

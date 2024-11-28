@@ -103,13 +103,13 @@ public class TestData extends AppCompatActivity {
         average /= thresholds.length;
 
         if (average <= 20) {
-            return "Normal";
+            return "Normal Hearing Capability";
         } else if (average > 20 && average <= 40) {
-            return "Slight";
+            return "Slight Hearing Loss";
         } else if (average > 40 && average <= 70) {
-            return "Moderate";
+            return "Moderate Hearing Loss. Please Consult a Doctor";
         } else {
-            return "Extreme";
+            return "Extreme Hearing Loss. Please Consult a Doctor";
         }
     }
 
