@@ -8,7 +8,7 @@
     android:gravity="center"
     android:layout_height="match_parent"
     android:padding="15dp"
-    android:background="@color/background_grey"
+    android:background="@color/background_white"
     tools:context=".Registration">
 
   <TextView
@@ -18,12 +18,14 @@
       android:textStyle="bold"
       android:gravity="center"
       android:layout_marginBottom="20dp"
-      android:text="@string/register" />
+      android:text="@string/register"
+      android:textColor="@color/black"/>
 
 
   <com.google.android.material.textfield.TextInputLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      android:textColorHint="@color/grey">
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/email"
         android:hint="@string/email"
@@ -33,7 +35,8 @@
 
   <com.google.android.material.textfield.TextInputLayout
       android:layout_width="match_parent"
-      android:layout_height="wrap_content">
+      android:layout_height="wrap_content"
+      android:textColorHint="@color/grey">
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/password"
         android:hint="@string/password"
@@ -60,6 +63,7 @@
       android:gravity="center"
       android:layout_marginTop="20dp"
       android:text="@string/click_to_login"
+      android:textColor="@color/grey"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"/>
 
