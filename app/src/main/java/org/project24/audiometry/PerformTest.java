@@ -1,4 +1,4 @@
-package org.woheller69.audiometry;
+package org.project24.audiometry;
 
 import android.content.Context;
 import android.content.Intent;
@@ -7,7 +7,6 @@ import android.media.AudioTrack;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.os.Environment;
 import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,7 +16,6 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
 import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;

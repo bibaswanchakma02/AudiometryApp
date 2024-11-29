@@ -1,4 +1,4 @@
-package org.woheller69.audiometry;
+package org.project24.audiometry;
 
 import android.Manifest;
 import android.app.Activity;

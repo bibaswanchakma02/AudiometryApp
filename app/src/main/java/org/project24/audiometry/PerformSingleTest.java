@@ -1,4 +1,4 @@
-package org.woheller69.audiometry;
+package org.project24.audiometry;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,8 +11,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import static org.woheller69.audiometry.PerformTest.testFrequencies;
-import static org.woheller69.audiometry.PerformTest.gain;
+import static org.project24.audiometry.PerformTest.testFrequencies;
+import static org.project24.audiometry.PerformTest.gain;
 
 import androidx.appcompat.app.AppCompatActivity;
 

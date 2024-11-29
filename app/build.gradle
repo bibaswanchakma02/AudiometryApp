@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
 
 android {
-    namespace 'org.woheller69.audiometry'
+    namespace 'org.project24.audiometry'
     compileSdk 34
 
     defaultConfig {
@@ -10,6 +10,7 @@ android {
         targetSdkVersion 33
         versionCode 190
         versionName "1.9"
+        applicationId 'audiometryapp'
     }
     buildTypes {
         release {
@@ -37,4 +38,5 @@ dependencies {
     implementation 'com.google.android.material:material:1.10.0'
     implementation 'androidx.activity:activity:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.firebase:firebase-database:21.0.0'
 }

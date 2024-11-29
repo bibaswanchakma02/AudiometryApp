@@ -1,4 +1,4 @@
-package org.woheller69.audiometry;
+package org.project24.audiometry;
 
 import android.content.Context;
 import android.content.Intent;
@@ -20,7 +20,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
 
-import org.woheller69.audiometry.R;
+import org.project24.audiometry.R;
 
 import java.text.DateFormat;
 import java.util.ArrayList;

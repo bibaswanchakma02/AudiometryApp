@@ -1,12 +1,9 @@
-package org.woheller69.audiometry;
+package org.project24.audiometry;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,7 +12,6 @@ import androidx.core.content.ContextCompat;
 import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -37,7 +33,7 @@ import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
-import static org.woheller69.audiometry.PerformTest.testFrequencies;
+import static org.project24.audiometry.PerformTest.testFrequencies;
 
 public class TestData extends AppCompatActivity {
     int index;

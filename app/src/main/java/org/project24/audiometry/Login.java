@@ -1,23 +1,16 @@
-package org.woheller69.audiometry;
-
-import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
+package org.project24.audiometry;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,10 +19,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Registration extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     TextInputEditText editTextEmail, editTextPassword;
-    Button buttonReg;
+    Button buttonLogin;
     FirebaseAuth mAuth;
     ProgressBar progressBar;
     TextView textView;
@@ -48,25 +41,23 @@ public class Registration extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_registration);
+        setContentView(R.layout.activity_login);
         mAuth = FirebaseAuth.getInstance();
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
-        buttonReg = findViewById(R.id.btn_register);
+        buttonLogin = findViewById(R.id.btn_login);
         progressBar = findViewById(R.id.progressBar);
-        textView = findViewById(R.id.loginNow);
+        textView = findViewById(R.id.registerNow);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Login.class);
+                Intent intent = new Intent(getApplicationContext(), Registration.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        buttonReg.setOnClickListener(new View.OnClickListener(){
-
+        buttonLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
@@ -75,33 +66,30 @@ public class Registration extends AppCompatActivity {
                 password = String.valueOf(editTextPassword.getText());
 
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(Registration.this,"Enter email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this,"Enter email", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(Registration.this,"Enter password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this,"Enter password", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                mAuth.createUserWithEmailAndPassword(email, password)
+                mAuth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 progressBar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-
-                                    Toast.makeText(Registration.this, "Account created.",
+                                    // Sign in success, update UI with the signed-in user's information
+                                    Toast.makeText(getApplicationContext(), "Login Successful.",
                                             Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(getApplicationContext(), Login.class);
+                                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                     startActivity(intent);
                                     finish();
-
-
                                 } else {
-                                    // If sign in fails, display a message to the user.
 
-                                    Toast.makeText(Registration.this, "Authentication failed.",
+                                    Toast.makeText(Login.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
 
                                 }

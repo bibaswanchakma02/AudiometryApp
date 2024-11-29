@@ -1,4 +1,4 @@
-package org.woheller69.audiometry;
+package org.project24.audiometry;
 
 import android.media.AudioFormat;
 import android.media.AudioManager;

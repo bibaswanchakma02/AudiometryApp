@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="org.woheller69.audiometry" >
+    package="org.project24.audiometry">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -47,7 +47,7 @@
             android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".PerformTest"
@@ -55,7 +55,7 @@
             android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".Pre_Calibration"
@@ -64,7 +64,7 @@
             android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".Instructions"
@@ -73,7 +73,7 @@
             android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".TestLookup"
@@ -82,7 +82,7 @@
             android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="MainActivity" />
+                android:value=".MainActivity" />
         </activity>
         <activity
             android:name=".TestData"
@@ -91,7 +91,7 @@
             android:screenOrientation="fullSensor" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="TestLookup" />
+                android:value=".TestLookup" />
         </activity>
     </application>
 
