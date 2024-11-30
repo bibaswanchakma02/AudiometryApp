@@ -27,12 +27,18 @@ import com.github.mikephil.charting.data.Entry;
 import com.github.mikephil.charting.data.LineData;
 import com.github.mikephil.charting.data.LineDataSet;
 import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 import static org.project24.audiometry.PerformTest.testFrequencies;
 
 public class TestData extends AppCompatActivity {
@@ -98,10 +104,12 @@ public class TestData extends AppCompatActivity {
         }
         average /= thresholds.length;
 
-        if (average <= 20) {
+        if (average <= 15) {
             return "Normal Hearing Capability";
-        } else if (average > 20 && average <= 40) {
+        } else if (average > 15 && average <= 25) {
             return "Slight Hearing Loss";
+        } else if (average > 25 && average <= 40) {
+            return "Mild Hearing Loss";
         } else if (average > 40 && average <= 70) {
             return "Moderate Hearing Loss. Please Consult a Doctor";
         } else {
@@ -134,6 +142,11 @@ public class TestData extends AppCompatActivity {
         ImageButton download = findViewById(R.id.download_button);
         download.setOnClickListener(view-> {
             exportAsPdf();
+        });
+
+        ImageButton upload = findViewById(R.id.upload_button);
+        upload.setOnClickListener(view->{
+            uploadTestDataToFirebase();
         });
 
         ImageButton zoom = findViewById(R.id.zoom_button);
@@ -256,6 +269,8 @@ public class TestData extends AppCompatActivity {
     }
 
 
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         
@@ -317,4 +332,41 @@ public class TestData extends AppCompatActivity {
         // Close the PDF document
 //        pdfDocument.close();
     }
+
+
+    private void uploadTestDataToFirebase() {
+
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
+        // Prepare test result data
+        String testDate = fileName.split("-")[1]; // Extract date from fileName
+        ArrayList<Double> thresholdsLeft = new ArrayList<>();
+        ArrayList<Double> thresholdsRight = new ArrayList<>();
+
+        for (int i = 0; i < testFrequencies.length; i++) {
+            thresholdsLeft.add(testResults[1][i] - calibrationArray[i]);
+            thresholdsRight.add(testResults[0][i] - calibrationArray[i]);
+        }
+
+        // Create a map for storing data in Firestore or Realtime Database
+        HashMap<String, Object> testResultData = new HashMap<>();
+        testResultData.put("testDate", testDate);
+        testResultData.put("frequencies", testFrequencies);
+        testResultData.put("thresholdsLeft", thresholdsLeft);
+        testResultData.put("thresholdsRight", thresholdsRight);
+        testResultData.put("hearingLevelLeft", getHearingLevel(testResults[1]));
+        testResultData.put("hearingLevelRight", getHearingLevel(testResults[0]));
+
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+        database.child("users").child(userId).child("testResults").push()
+                .setValue(testResultData)
+                .addOnSuccessListener(aVoid -> {
+                    Toast.makeText(this, "Test result uploaded successfully!", Toast.LENGTH_SHORT).show();
+                })
+                .addOnFailureListener(e -> {
+                    Toast.makeText(this, "Failed to upload: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                });
+
+    }
+
 }
