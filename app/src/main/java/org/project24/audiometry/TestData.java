@@ -30,7 +30,6 @@ import com.github.mikephil.charting.formatter.IAxisValueFormatter;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -342,16 +341,21 @@ public class TestData extends AppCompatActivity {
         String testDate = fileName.split("-")[1]; // Extract date from fileName
         ArrayList<Double> thresholdsLeft = new ArrayList<>();
         ArrayList<Double> thresholdsRight = new ArrayList<>();
+        ArrayList<Integer> frequencies = new ArrayList<>();
+
+        for (int frequency : testFrequencies) {
+            frequencies.add(frequency);
+        }
 
         for (int i = 0; i < testFrequencies.length; i++) {
             thresholdsLeft.add(testResults[1][i] - calibrationArray[i]);
             thresholdsRight.add(testResults[0][i] - calibrationArray[i]);
         }
 
-        // Create a map for storing data in Firestore or Realtime Database
+        // Create a map for storing data in Realtime Database
         HashMap<String, Object> testResultData = new HashMap<>();
         testResultData.put("testDate", testDate);
-        testResultData.put("frequencies", testFrequencies);
+        testResultData.put("frequencies", frequencies);
         testResultData.put("thresholdsLeft", thresholdsLeft);
         testResultData.put("thresholdsRight", thresholdsRight);
         testResultData.put("hearingLevelLeft", getHearingLevel(testResults[1]));

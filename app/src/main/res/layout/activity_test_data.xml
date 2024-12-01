@@ -123,7 +123,7 @@
                     android:id="@+id/upload_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="94dp"
+                    android:layout_marginStart="19dp"
                     android:layout_toEndOf="@id/zoom_button"
                     android:background="@drawable/button_background"
                     android:paddingLeft="20sp"
