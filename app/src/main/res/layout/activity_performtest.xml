@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/page"
     android:layout_height="match_parent"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -11,6 +12,8 @@
     tools:context="org.project24.audiometry.PerformTest"
     android:gravity="center"
     android:keepScreenOn="true">
+
+
 
     <TextView
         android:id="@+id/progress"

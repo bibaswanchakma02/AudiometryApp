@@ -11,6 +11,16 @@
     android:padding="15dp"
     tools:context=".Login">
 
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="144dp"
+        android:layout_height="141dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="40sp"
+        app:srcCompat="@drawable/hearing" />
+
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,6 +65,8 @@
     <Button
         android:id="@+id/btn_login"
         android:text="@string/login"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_background"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
 
@@ -62,11 +74,13 @@
         android:id="@+id/registerNow"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/grey"
+        android:textColor="@color/green"
         android:gravity="center"
         android:layout_marginTop="20dp"
         android:text="@string/click_to_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+
+
 
 </LinearLayout>
