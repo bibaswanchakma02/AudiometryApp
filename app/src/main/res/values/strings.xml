@@ -57,4 +57,9 @@
     <string name="click_to_register">Click to Register</string>
     <string name="logout">Logout</string>
     <string name="user">User</string>
+    <string name="role">Select Role</string>
+    <string-array name="roles_array">
+        <item>Patient</item>
+        <item>Doctor</item>
+    </string-array>
 </resources>
