@@ -143,7 +143,7 @@ public class Login extends AppCompatActivity {
                             finish();
                         } else if (role.equals("Doctor")) {
                             // Redirect to doctor home screen
-                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                            Intent intent = new Intent(getApplicationContext(), DoctorActivity.class);
                             startActivity(intent);
                             finish();
                         } else {
