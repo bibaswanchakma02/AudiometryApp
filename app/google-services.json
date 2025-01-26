@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "878946115035",
-    "project_id": "audiometry-auth",
-    "storage_bucket": "audiometry-auth.firebasestorage.app"
+    "project_number": "869459635398",
+    "project_id": "audiometry-fyp",
+    "storage_bucket": "audiometry-fyp.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:878946115035:android:094a4e44bc76ae75e21bfe",
+        "mobilesdk_app_id": "1:869459635398:android:3bc1d0fffac97227fc3bc7",
         "android_client_info": {
           "package_name": "org.project24.audiometry"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCHRDUEoBtvL_X9bxMqsTuCumRKiN96-ow"
+          "current_key": "AIzaSyCcMni87I6J-nQlmU-X8PD7MjuqeHV_5yU"
         }
       ],
       "services": {

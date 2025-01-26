@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <string name="app_name">Audiometry</string>
     <string name="main_menu_greeting_body">Quick and Simple Hearing Test</string>
+    <string name="main_menu_doctor_greeting" tools:ignore="MissingTranslation">Conduct and Monitor Patient Hearing Profile</string>
     <string name="button_start">Start Full Test</string>
 
     <string name="title_activity_performTest">Tap When You Hear A Beep</string>
@@ -49,7 +50,10 @@
     <string name="use_low_gain">Use low gain</string>
     <string name="changeGain">Change gain</string>
     <string name="changeGainDescription">This will delete all calibration and test data. Continue?</string>
-    <string name="login">Login</string>
+    <string name="list_of_patient">Patients</string>
+    <string name="view_appointments">View Appointments</string>
+    <string name="telemedicine">Telemedicine</string>
+    <string name="login" translatable="false">Login</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="register">Register</string>
@@ -57,4 +61,10 @@
     <string name="click_to_register">Click to Register</string>
     <string name="logout">Logout</string>
     <string name="user">User</string>
+    <string name="role">Select Role</string>
+    <string-array name="roles_array">
+        <item>Select your role</item>
+        <item>Patient</item>
+        <item>Doctor</item>
+    </string-array>
 </resources>
