@@ -87,11 +87,13 @@ public class Registration extends AppCompatActivity {
 
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(Registration.this,"Enter email", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
 
                 if(TextUtils.isEmpty(password)){
                     Toast.makeText(Registration.this,"Enter password", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
                     return;
                 }
                 if (role.equals("Select Role")) {
