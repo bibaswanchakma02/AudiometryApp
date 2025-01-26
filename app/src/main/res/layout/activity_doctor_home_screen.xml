@@ -1,0 +1,146 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingStart="@dimen/activity_horizontal_margin_altered"
+    android:paddingEnd="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:gravity="center_vertical"
+    android:background="@color/white"
+    tools:context=".DoctorActivity"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="144dp"
+        android:layout_height="141dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20sp"
+        app:srcCompat="@drawable/hearing" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20sp"
+        android:gravity="end"
+        android:text="@string/app_name"
+        android:textColor="@color/black"
+        android:textSize="40sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/doctor_details"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="20sp"
+        android:text="Doctor"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_menu_doctor_greeting"
+        android:textSize="18sp"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:gravity="center" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="20sp">
+
+            <Button
+                android:id="@+id/view_appointments"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/view_appointments"
+                android:paddingStart="30sp"
+                android:paddingEnd="10sp"
+                android:paddingTop="20sp"
+                android:paddingBottom="20sp"
+                android:layout_marginBottom="15sp"
+                android:onClick="gotoAppointments"
+                android:background="@drawable/button_background"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:elevation="5dp" />
+
+            <Button
+                android:id="@+id/manage_patients"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/list_of_patient"
+                android:paddingStart="30sp"
+                android:paddingEnd="10sp"
+                android:paddingTop="20sp"
+                android:paddingBottom="20sp"
+                android:layout_marginBottom="15sp"
+                android:onClick="gotoManagePatients"
+                android:background="@drawable/button_background"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:elevation="5dp" />
+
+            <Button
+                android:id="@+id/telemedicine"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/telemedicine"
+                android:paddingStart="30sp"
+                android:paddingEnd="10sp"
+                android:paddingTop="20sp"
+                android:paddingBottom="20sp"
+                android:layout_marginBottom="15sp"
+                android:onClick="gotoTelemedicine"
+                android:background="@drawable/button_background"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:elevation="5dp" />
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:elevation="5dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:layout_marginBottom="15sp"
+                android:onClick="gotoInfo"
+                android:paddingStart="20sp"
+                android:paddingTop="20sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="20sp"
+                android:text="@string/title_activity_info" />
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_background"
+                android:elevation="5dp"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:onClick="gotoInfo"
+                android:paddingStart="20sp"
+                android:paddingTop="20sp"
+                android:paddingEnd="10sp"
+                android:paddingBottom="20sp"
+                android:text="@string/logout"
+                android:id="@+id/logout" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
