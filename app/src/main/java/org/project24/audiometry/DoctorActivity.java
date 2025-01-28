@@ -4,8 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -13,8 +15,11 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class DoctorActivity extends AppCompatActivity {
 
@@ -40,6 +45,7 @@ public class DoctorActivity extends AppCompatActivity {
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
             String userId = currentUser.getUid();
+            fetchFullName(userId);
             welcomeTextView.setText(currentUser.getEmail());
         }
         else{
@@ -49,6 +55,31 @@ public class DoctorActivity extends AppCompatActivity {
         logoutButton.setOnClickListener(view -> {
             mAuth.signOut();
             redirectToLogin();
+        });
+    }
+
+    /**
+     * Fetches the user's fullname from Firebase and displays it in the TextView.
+     *
+     * @param userId The UID of the logged-in user.
+     */
+
+    private void fetchFullName(String userId) {
+        usersRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    String fullname = dataSnapshot.child("fullname").getValue(String.class);
+                    welcomeTextView.setText("Welcome, " + fullname);
+                } else {
+                    welcomeTextView.setText("Welcome, User");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(DoctorActivity.this, "Failed to fetch user details.", Toast.LENGTH_SHORT).show();
+            }
         });
     }
 

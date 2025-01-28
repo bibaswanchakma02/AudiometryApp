@@ -61,6 +61,22 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="20sp">
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="@string/doctor_list"
+                android:paddingStart="30sp"
+                android:paddingEnd="30sp"
+                android:paddingTop="20sp"
+                android:paddingBottom="20sp"
+                android:layout_marginBottom="15sp"
+                android:onClick="gotoDoctorList"
+                android:background="@drawable/button_background"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:elevation="5dp"/>
+
         <Button
             android:id="@+id/main_startTest"
             android:visibility="gone"
@@ -68,7 +84,7 @@
             android:layout_height="wrap_content"
             android:text="@string/button_start"
             android:paddingStart="30sp"
-            android:paddingEnd="10sp"
+            android:paddingEnd="30sp"
             android:paddingTop="20sp"
             android:paddingBottom="20sp"
             android:layout_marginBottom="15sp"
@@ -85,7 +101,7 @@
             android:layout_height="wrap_content"
             android:text="@string/button_singlestart"
             android:paddingStart="30sp"
-            android:paddingEnd="10sp"
+            android:paddingEnd="30sp"
             android:paddingTop="20sp"
             android:paddingBottom="20sp"
             android:layout_marginBottom="15sp"
@@ -123,7 +139,7 @@
                 android:onClick="gotoPreCalibration"
                 android:paddingStart="30sp"
                 android:paddingTop="20sp"
-                android:paddingEnd="10sp"
+                android:paddingEnd="30sp"
                 android:paddingBottom="20sp"
                 android:text="@string/title_calibration" />
 
@@ -138,7 +154,7 @@
                 android:onClick="gotoInfo"
                 android:paddingStart="20sp"
                 android:paddingTop="20sp"
-                android:paddingEnd="10sp"
+                android:paddingEnd="20sp"
                 android:paddingBottom="20sp"
                 android:text="@string/title_activity_info" />
 
@@ -152,7 +168,7 @@
                 android:onClick="gotoInfo"
                 android:paddingStart="20sp"
                 android:paddingTop="20sp"
-                android:paddingEnd="10sp"
+                android:paddingEnd="20sp"
                 android:paddingBottom="20sp"
                 android:text="@string/logout"
                 android:id="@+id/logout" />

@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceManager;
@@ -30,6 +31,11 @@ import static android.os.Environment.DIRECTORY_DOCUMENTS;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -40,6 +46,8 @@ public class MainActivity extends AppCompatActivity {
     Button button;
     TextView textView;
     FirebaseUser user;
+    FirebaseDatabase database;
+    DatabaseReference usersRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,16 +55,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         auth = FirebaseAuth.getInstance();
+        database = FirebaseDatabase.getInstance();
+        usersRef = database.getReference("Users");
         button = findViewById(R.id.logout);
         textView = findViewById(R.id.user_details);
         user = auth.getCurrentUser();
-        if(user==null){
-            Intent intent = new Intent(getApplicationContext(),Login.class);
+        if (user == null) {
+            Intent intent = new Intent(getApplicationContext(), Login.class);
             startActivity(intent);
             finish();
-        }
-        else {
-            textView.setText(user.getEmail());
+        } else {
+            String userId = user.getUid();
+            fetchFullName(userId);
         }
 
         button.setOnClickListener(new View.OnClickListener(){
@@ -69,8 +79,6 @@ public class MainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-
 
 
         getSupportActionBar().getThemedContext();
@@ -87,6 +95,31 @@ public class MainActivity extends AppCompatActivity {
                       //Toast.makeText(this,"Gain: "+PerformTest.gain,Toast.LENGTH_LONG).show();
                       checkShowInvisibleButtons();
                 });
+    }
+
+    /**
+     * Fetches the user's fullname from Firebase and displays it in the TextView.
+     *
+     * @param userId The UID of the logged-in user.
+     */
+
+    private void fetchFullName(String userId) {
+        usersRef.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    String fullname = dataSnapshot.child("fullname").getValue(String.class);
+                    textView.setText("Welcome, " + fullname);
+                } else {
+                    textView.setText("Welcome, User");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(MainActivity.this, "Failed to fetch user details.", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void checkShowInvisibleButtons(){
@@ -110,6 +143,11 @@ public class MainActivity extends AppCompatActivity {
      */
     public void gotoPreCalibration(View view){
         Intent intent = new Intent(this, Pre_Calibration.class);
+        startActivity(intent);
+    }
+
+    public void gotoDoctorList(View view){
+        Intent intent = new Intent(this, DoctorList.class);
         startActivity(intent);
     }
 
