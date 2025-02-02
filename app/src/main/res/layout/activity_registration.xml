@@ -30,6 +30,19 @@
       android:textSize="25sp"
       android:textStyle="bold" />
 
+  <com.google.android.material.textfield.TextInputLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:textColorHint="@color/grey">
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/fullname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:hint="@string/fullname" />
+  </com.google.android.material.textfield.TextInputLayout>
+
 
   <com.google.android.material.textfield.TextInputLayout
       android:layout_width="match_parent"

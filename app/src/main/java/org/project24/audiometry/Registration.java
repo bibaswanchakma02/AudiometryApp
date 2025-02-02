@@ -23,10 +23,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.auth.User;
 
 public class Registration extends AppCompatActivity {
 
-    TextInputEditText editTextEmail, editTextPassword;
+    TextInputEditText editTextFullName, editTextEmail, editTextPassword;
     Button buttonReg;
     Spinner roleSpinner;
     FirebaseAuth mAuth;
@@ -53,6 +54,7 @@ public class Registration extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
         mAuth = FirebaseAuth.getInstance();
         databaseReference = FirebaseDatabase.getInstance().getReference("Users");
+        editTextFullName = findViewById(R.id.fullname);
         editTextEmail = findViewById(R.id.email);
         editTextPassword = findViewById(R.id.password);
         roleSpinner = findViewById(R.id.role_spinner);
@@ -80,10 +82,18 @@ public class Registration extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 progressBar.setVisibility(View.VISIBLE);
-                String email, password, role;
+                String email, password, fullname, role;
+
                 email = String.valueOf(editTextEmail.getText());
                 password = String.valueOf(editTextPassword.getText());
+                fullname = String.valueOf(editTextFullName.getText());
                 role = roleSpinner.getSelectedItem().toString();
+
+                if(TextUtils.isEmpty(fullname)){
+                    Toast.makeText(Registration.this,"Enter Full Name", Toast.LENGTH_SHORT).show();
+                    progressBar.setVisibility(View.GONE);
+                    return;
+                }
 
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(Registration.this,"Enter email", Toast.LENGTH_SHORT).show();
@@ -103,31 +113,22 @@ public class Registration extends AppCompatActivity {
                 }
 
                 mAuth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                progressBar.setVisibility(View.GONE);
-                                if (task.isSuccessful()) {
-                                    String userId = mAuth.getCurrentUser().getUid();
-                                    User user = new User(email, role);
-                                    databaseReference.child(userId).setValue(user);
+                        .addOnCompleteListener(task -> {
+                            progressBar.setVisibility(View.GONE);
+                            if (task.isSuccessful()) {
+                                String userId = mAuth.getCurrentUser().getUid();
+                                User user = new User(fullname, email, role); // Pass fullname to User object
+                                databaseReference.child(userId).setValue(user);
 
-                                    Toast.makeText(Registration.this, "Account created.",
-                                            Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Registration.this, "Account created.",
+                                        Toast.LENGTH_SHORT).show();
 
-                                    if (role.equals("Patient")) {
-                                        Intent intent = new Intent(getApplicationContext(), Login.class);
-                                        startActivity(intent);
-                                    } else if (role.equals("Doctor")) {
-                                        Intent intent = new Intent(getApplicationContext(), Login.class);
-                                        startActivity(intent);
-                                    }
-
-                                    finish();
-                                } else {
-                                    Toast.makeText(Registration.this, "Authentication failed.",
-                                            Toast.LENGTH_SHORT).show();
-                                }
+                                Intent intent = new Intent(getApplicationContext(), Login.class);
+                                startActivity(intent);
+                                finish();
+                            } else {
+                                Toast.makeText(Registration.this, "Authentication failed.",
+                                        Toast.LENGTH_SHORT).show();
                             }
                         });
 
@@ -137,6 +138,7 @@ public class Registration extends AppCompatActivity {
 
 
     public static class User {
+        public String fullname; // New field for fullname
         public String email;
         public String role;
 
@@ -144,7 +146,8 @@ public class Registration extends AppCompatActivity {
             // Default constructor required for calls to DataSnapshot.getValue(User.class)
         }
 
-        public User(String email, String role) {
+        public User(String fullname, String email, String role) {
+            this.fullname = fullname;
             this.email = email;
             this.role = role;
         }
