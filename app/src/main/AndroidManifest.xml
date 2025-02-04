@@ -18,6 +18,9 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".DoctorProfile"
+            android:exported="false" />
+        <activity
             android:name=".DoctorList"
             android:exported="false" />
         <activity

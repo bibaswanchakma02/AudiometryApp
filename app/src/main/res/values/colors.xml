@@ -11,5 +11,7 @@
     <color name="background_white">#ffffff</color>
     <color name= "blue">#3958ad</color>
     <color name="test_green">#4dc944</color>
+    <color name="purple_500">#6200EE</color> <!-- Adjust color as needed -->
+
 
 </resources>
