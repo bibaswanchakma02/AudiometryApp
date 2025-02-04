@@ -1,5 +1,6 @@
 package org.project24.audiometry;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -36,7 +37,7 @@ public class DoctorList extends AppCompatActivity {
 
         doctorListView = findViewById(R.id.doctorListView);
         doctorNames = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this,R.layout.list_item, R.id.doctorName, doctorNames);
+        adapter = new DoctorListAdapter(this, doctorNames);
         doctorListView.setAdapter(adapter);
 
         // Initialize Firebase Database Reference
@@ -63,5 +64,16 @@ public class DoctorList extends AppCompatActivity {
                 Toast.makeText(DoctorList.this, "Failed to fetch list of doctors.", Toast.LENGTH_SHORT).show();
             }
         });
+
+        /*doctorListView.setOnItemClickListener((parent, view, position, id) -> {
+            String selectedDoctor = doctorNames.get(position);
+
+            // Create an Intent to open DoctorProfile activity
+            Intent intent = new Intent(DoctorList.this, DoctorProfile.class);
+            intent.putExtra("doctorName", selectedDoctor);
+            startActivity(intent);
+        });*/
     }
+
+
 }
