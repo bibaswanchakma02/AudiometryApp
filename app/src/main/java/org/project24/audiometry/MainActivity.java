@@ -137,10 +137,6 @@ public class MainActivity extends AppCompatActivity {
             startSingleTest.setVisibility(View.GONE);
         }
     }
-    /**
-     * goes to PreTestInformation activity
-     * @param view- current view
-     */
     public void gotoPreCalibration(View view){
         Intent intent = new Intent(this, Pre_Calibration.class);
         startActivity(intent);
