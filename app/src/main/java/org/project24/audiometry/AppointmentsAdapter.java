@@ -22,11 +22,13 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
     private Context context;
     private List<Appointment> appointmentList;
     private DatabaseReference appointmentsRef;
+    private boolean isAcceptedList;
 
-    public AppointmentsAdapter(Context context, List<Appointment> appointmentList) {
+    public AppointmentsAdapter(Context context, List<Appointment> appointmentList, boolean isAcceptedList) {
         this.context = context;
         this.appointmentList = appointmentList;
         this.appointmentsRef = FirebaseDatabase.getInstance().getReference("Appointments");
+        this.isAcceptedList = isAcceptedList;
     }
 
 
@@ -46,11 +48,15 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
         holder.timeText.setText("Time: " + appointment.getTime());
         holder.statusText.setText("Status: " + appointment.getStatus());
 
-        // Accept Appointment
-        holder.acceptButton.setOnClickListener(v -> updateAppointmentStatus(appointment, "Accepted", ""));
-
-        // Reject Appointment (Show Dialog)
-        holder.rejectButton.setOnClickListener(v -> showRejectionDialog(appointment, position));
+        if (isAcceptedList) {
+            // If viewing accepted list, hide Accept and Reject buttons
+            holder.acceptButton.setVisibility(View.GONE);
+            holder.rejectButton.setVisibility(View.GONE);
+        } else {
+            // Show Accept and Reject buttons for pending appointments
+            holder.acceptButton.setOnClickListener(v -> updateAppointmentStatus(appointment, "Accepted", ""));
+            holder.rejectButton.setOnClickListener(v -> showRejectionDialog(appointment, position));
+        }
 
     }
 

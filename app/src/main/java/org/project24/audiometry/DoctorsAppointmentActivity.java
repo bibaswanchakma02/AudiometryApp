@@ -44,7 +44,7 @@ public class DoctorsAppointmentActivity extends AppCompatActivity {
         appointmentsRecyclerView = findViewById(R.id.appointmentsRecyclerView);
         appointmentsRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         appointmentList = new ArrayList<>();
-        adapter = new AppointmentsAdapter(this, appointmentList);
+        adapter = new AppointmentsAdapter(this, appointmentList, false);
         appointmentsRecyclerView.setAdapter(adapter);
 
         // Firebase Reference

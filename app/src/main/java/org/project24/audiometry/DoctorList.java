@@ -74,6 +74,4 @@ public class DoctorList extends AppCompatActivity {
             startActivity(intent);
         });*/
     }
-
-
 }
