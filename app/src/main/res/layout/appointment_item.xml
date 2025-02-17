@@ -2,63 +2,101 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="8dp"
-    app:cardElevation="4dp"
-    android:layout_margin="8dp">
+    app:cardCornerRadius="12dp"
+    app:cardElevation="6dp"
+    android:layout_margin="8dp"
+    android:background="?attr/selectableItemBackground"
+    android:foreground="?attr/selectableItemBackground">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:orientation="vertical">
+<androidx.constraintlayout.widget.ConstraintLayout
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:padding="16dp"> <!-- Consistent padding -->
 
-        <TextView
-            android:id="@+id/patientNameText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Patient: John Doe"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+<!-- Patient Name -->
+<TextView
+    android:id="@+id/patientNameText"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Patient: John Doe"
+    android:textSize="18sp"
+    android:textStyle="bold"
+    android:textColor="@color/black"
+    app:layout_constraintTop_toTopOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginBottom="8dp"/> <!-- Spacing below -->
 
-        <TextView
-            android:id="@+id/dateText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date: 12/02/2025"/>
+<!-- Date -->
+<TextView
+    android:id="@+id/dateText"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Date: 12/02/2025"
+    android:textSize="16sp"
+    android:textColor="@color/gray"
+    app:layout_constraintTop_toBottomOf="@id/patientNameText"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginBottom="4dp"/> <!-- Spacing below -->
 
-        <TextView
-            android:id="@+id/timeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Time: 10:00 AM"/>
+<!-- Time -->
+<TextView
+    android:id="@+id/timeText"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Time: 10:00 AM"
+    android:textSize="16sp"
+    android:textColor="@color/gray"
+    app:layout_constraintTop_toBottomOf="@id/dateText"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginBottom="8dp"/> <!-- Spacing below -->
 
-        <TextView
-            android:id="@+id/statusText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Status: Pending"/>
+<!-- Status -->
+<TextView
+    android:id="@+id/statusText"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Status: Pending"
+    android:textSize="16sp"
+    android:textColor="@color/blue"
+    app:layout_constraintTop_toBottomOf="@id/timeText"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginBottom="16dp"/> <!-- Spacing below -->
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginTop="8dp">
+<!-- Accept Button -->
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/acceptButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Accept"
+    android:textColor="@color/white"
+    app:backgroundTint="@color/green"
+    app:cornerRadius="8dp"
+    app:rippleColor="@color/light_green"
+    app:layout_constraintTop_toBottomOf="@id/statusText"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toStartOf="@id/rejectButton"
+    app:layout_constraintHorizontal_chainStyle="spread"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"/>
 
-            <Button
-                android:id="@+id/acceptButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Accept"
-                android:background="@color/green"/>
+<!-- Reject Button -->
+<com.google.android.material.button.MaterialButton
+    android:id="@+id/rejectButton"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:text="Reject"
+    android:textColor="@color/white"
+    app:backgroundTint="@color/cherryred"
+    app:cornerRadius="8dp"
+    app:rippleColor="@color/light_red"
+    app:layout_constraintTop_toBottomOf="@id/statusText"
+    app:layout_constraintStart_toEndOf="@id/acceptButton"
+    app:layout_constraintEnd_toEndOf="parent"
+    android:layout_marginBottom="8dp"/>
 
-            <Button
-                android:id="@+id/rejectButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Reject"
-                android:background="@color/red"
-                android:layout_marginStart="10dp"/>
-        </LinearLayout>
-    </LinearLayout>
-
-</androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
