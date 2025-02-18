@@ -18,6 +18,9 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".PatientDetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".AcceptedAppointmentsActivity"
             android:exported="false" />
         <activity

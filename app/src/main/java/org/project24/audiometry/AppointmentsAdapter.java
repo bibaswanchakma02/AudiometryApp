@@ -2,6 +2,7 @@ package org.project24.audiometry;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,6 +55,18 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
                 if (snapshot.exists()) {
                     String fullName = snapshot.child("fullname").getValue(String.class);
                     holder.patientNameText.setText("Patient: " + fullName);
+
+                    if (isAcceptedList) {
+                        holder.itemView.setOnClickListener(v -> {
+                            Intent intent = new Intent(context, PatientDetailsActivity.class);
+                            intent.putExtra("patientName", fullName);
+                            intent.putExtra("appointmentId", appointment.getAppointmentId());
+                            intent.putExtra("patientId", appointment.getPatientId());
+                            intent.putExtra("date", appointment.getDate());
+                            intent.putExtra("time", appointment.getTime());
+                            context.startActivity(intent);
+                        });
+                    }
                 } else {
                     holder.patientNameText.setText("Patient: Unknown patient");
                 }
