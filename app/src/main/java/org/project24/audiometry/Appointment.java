@@ -5,7 +5,7 @@ public class Appointment {
     private String patientId;
     private String doctorId;
     private String doctorName;
-    private String patientName;
+    private String fullName;
     private String status;
     private String date;
     private String time;
@@ -15,12 +15,12 @@ public class Appointment {
     }
 
 
-    public Appointment(String appointmentId, String patientId, String doctorId, String doctorName, String patientName, String status, String date, String time, String rejectionMessage) {
+    public Appointment(String appointmentId, String patientId, String doctorId, String doctorName, String fullName, String status, String date, String time, String rejectionMessage) {
         this.appointmentId = appointmentId;
         this.patientId = patientId;
         this.doctorId = doctorId;
         this.doctorName = doctorName;
-        this.patientName = patientName;
+        this.fullName = fullName;
         this.status = status;
         this.date = date;
         this.time = time;
@@ -59,12 +59,12 @@ public class Appointment {
         this.doctorName = doctorName;
     }
 
-    public String getPatientName() {
-        return patientName;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setPatientName(String patientName) {
-        this.patientName = patientName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     public String getStatus() {

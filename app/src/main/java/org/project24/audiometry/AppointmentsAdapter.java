@@ -12,8 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -21,13 +24,14 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
 
     private Context context;
     private List<Appointment> appointmentList;
-    private DatabaseReference appointmentsRef;
+    private DatabaseReference appointmentsRef, usersRef;
     private boolean isAcceptedList;
 
     public AppointmentsAdapter(Context context, List<Appointment> appointmentList, boolean isAcceptedList) {
         this.context = context;
         this.appointmentList = appointmentList;
         this.appointmentsRef = FirebaseDatabase.getInstance().getReference("Appointments");
+        this.usersRef = FirebaseDatabase.getInstance().getReference("Users");
         this.isAcceptedList = isAcceptedList;
     }
 
@@ -43,21 +47,35 @@ public class AppointmentsAdapter extends RecyclerView.Adapter<AppointmentsAdapte
     public void onBindViewHolder(@NonNull AppointmentsAdapter.ViewHolder holder, int position) {
         Appointment appointment = appointmentList.get(position);
 
-        holder.patientNameText.setText("Patient: " + appointment.getPatientName());
+        // Fetch patient name from Users node
+        usersRef.child(appointment.getPatientId()).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    String fullName = snapshot.child("fullname").getValue(String.class);
+                    holder.patientNameText.setText("Patient: " + fullName);
+                } else {
+                    holder.patientNameText.setText("Patient: Unknown patient");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                holder.patientNameText.setText("Patient: Unknown patient");
+            }
+        });
+
         holder.dateText.setText("Date: " + appointment.getDate());
         holder.timeText.setText("Time: " + appointment.getTime());
         holder.statusText.setText("Status: " + appointment.getStatus());
 
         if (isAcceptedList) {
-            // If viewing accepted list, hide Accept and Reject buttons
             holder.acceptButton.setVisibility(View.GONE);
             holder.rejectButton.setVisibility(View.GONE);
         } else {
-            // Show Accept and Reject buttons for pending appointments
             holder.acceptButton.setOnClickListener(v -> updateAppointmentStatus(appointment, "Accepted", ""));
             holder.rejectButton.setOnClickListener(v -> showRejectionDialog(appointment, position));
         }
-
     }
 
     @Override
