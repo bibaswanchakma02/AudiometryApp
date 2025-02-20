@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/white"> <!-- Set a background color -->
+
+    <!-- Add a title for the RecyclerView -->
+    <TextView
+        android:id="@+id/titleAcceptedAppointments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Accepted Appointments"
+        android:layout_gravity="center"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginBottom="16dp"/> <!-- Add some margin below the title -->
+
+    <!-- Styled RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewAcceptedAppointment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/grey"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical"
+        android:elevation="4dp"
+        android:overScrollMode="never"/>
+</LinearLayout>

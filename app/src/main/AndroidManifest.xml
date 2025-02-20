@@ -18,6 +18,12 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".PatientDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AcceptedAppointmentsActivity"
+            android:exported="false" />
+        <activity
             android:name=".DoctorProfile"
             android:exported="false" />
         <activity
@@ -25,6 +31,9 @@
             android:exported="false" />
         <activity
             android:name=".DoctorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DoctorsAppointmentActivity"
             android:exported="false" />
         <activity
             android:name=".Registration"

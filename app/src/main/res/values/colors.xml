@@ -13,6 +13,14 @@
     <color name="test_green">#4dc944</color>
     <color name="purple_500">#6200EE</color> <!-- Adjust color as needed -->
     <color name = "red">#ad0707</color>
+    <color name="gray">#FF808080</color>
+    <color name="lightblue">#FF2196F3</color>
+    <color name="light_green">#FF81C784</color>
+    <color name="cherryred">#FFE53935</color>
+    <color name="light_red">#FFEF9A9A</color>
+    <color name="light_blue">#FF90CAF9</color>
+    <color name="sap_green">#FF4CAF50</color>
+
 
 
 </resources>

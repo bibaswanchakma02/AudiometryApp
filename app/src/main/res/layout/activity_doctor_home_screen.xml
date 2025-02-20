@@ -62,7 +62,6 @@
             android:layout_marginTop="20sp">
 
             <Button
-                android:id="@+id/view_appointments"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="@string/view_appointments"
@@ -78,7 +77,6 @@
                 android:elevation="5dp" />
 
             <Button
-                android:id="@+id/manage_patients"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="@string/list_of_patient"
@@ -86,15 +84,14 @@
                 android:paddingEnd="10sp"
                 android:paddingTop="20sp"
                 android:paddingBottom="20sp"
+                android:onClick="gotoAcceptedPatients"
                 android:layout_marginBottom="15sp"
-                android:onClick="gotoManagePatients"
                 android:background="@drawable/button_background"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:elevation="5dp" />
 
             <Button
-                android:id="@+id/telemedicine"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="@string/telemedicine"
@@ -103,7 +100,6 @@
                 android:paddingTop="20sp"
                 android:paddingBottom="20sp"
                 android:layout_marginBottom="15sp"
-                android:onClick="gotoTelemedicine"
                 android:background="@drawable/button_background"
                 android:layout_gravity="center"
                 android:gravity="center"
@@ -117,7 +113,6 @@
                 android:gravity="center"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15sp"
-                android:onClick="gotoInfo"
                 android:paddingStart="20sp"
                 android:paddingTop="20sp"
                 android:paddingEnd="10sp"
@@ -131,7 +126,6 @@
                 android:elevation="5dp"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:onClick="gotoInfo"
                 android:paddingStart="20sp"
                 android:paddingTop="20sp"
                 android:paddingEnd="10sp"

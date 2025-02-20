@@ -2,6 +2,7 @@ package org.project24.audiometry;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -28,7 +29,7 @@ public class DoctorActivity extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference usersRef;
     TextView welcomeTextView;
-    Button logoutButton;
+    Button logoutButton, viewAppointmentBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +82,16 @@ public class DoctorActivity extends AppCompatActivity {
                 Toast.makeText(DoctorActivity.this, "Failed to fetch user details.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void gotoAppointments(View view){
+        Intent intent = new Intent(this, DoctorsAppointmentActivity.class);
+        startActivity(intent);
+    }
+
+    public void gotoAcceptedPatients(View view){
+        Intent intent = new Intent(this, AcceptedAppointmentsActivity.class);
+        startActivity(intent);
     }
 
     private void redirectToLogin() {
