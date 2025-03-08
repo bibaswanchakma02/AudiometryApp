@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity.patient;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,9 @@ import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
+import org.project24.audiometry.R;
+import org.project24.audiometry.activity.doctor.DoctorProfile;
 
 import java.util.List;
 

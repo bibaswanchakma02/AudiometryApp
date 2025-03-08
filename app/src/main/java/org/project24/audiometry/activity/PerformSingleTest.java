@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -11,10 +11,15 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import static org.project24.audiometry.PerformTest.testFrequencies;
-import static org.project24.audiometry.PerformTest.gain;
+import static org.project24.audiometry.activity.PerformTest.testFrequencies;
+import static org.project24.audiometry.activity.PerformTest.gain;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.project24.audiometry.R;
+import org.project24.audiometry.activity.patient.MainActivity;
+import org.project24.audiometry.utils.FileOperations;
+import org.project24.audiometry.utils.ToneGenerator;
 
 
 public class PerformSingleTest extends AppCompatActivity {

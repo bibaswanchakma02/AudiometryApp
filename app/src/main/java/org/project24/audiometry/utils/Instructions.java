@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.utils;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.view.MenuItem;
 import android.view.WindowManager;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.project24.audiometry.activity.patient.MainActivity;
+import org.project24.audiometry.R;
 
 
 public class Instructions extends AppCompatActivity {

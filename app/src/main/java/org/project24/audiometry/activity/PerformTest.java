@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +15,11 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import org.project24.audiometry.R;
+import org.project24.audiometry.activity.patient.MainActivity;
+import org.project24.audiometry.utils.FileOperations;
+import org.project24.audiometry.utils.ToneGenerator;
 
 import java.util.Arrays;
 import java.util.Timer;

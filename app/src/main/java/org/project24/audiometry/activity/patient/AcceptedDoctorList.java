@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity.patient;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
+
+import org.project24.audiometry.R;
+import org.project24.audiometry.activity.ChatActivity;
 
 public class AcceptedDoctorList extends AppCompatActivity {
 

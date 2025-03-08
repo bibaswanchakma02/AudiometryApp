@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity.doctor;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -15,6 +15,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.project24.audiometry.activity.patient.AppointmentsAdapter;
+import org.project24.audiometry.R;
+import org.project24.audiometry.activity.patient.Appointment;
 
 import java.util.ArrayList;
 import java.util.List;

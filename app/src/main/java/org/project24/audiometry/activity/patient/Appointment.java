@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity.patient;
 
 public class Appointment {
     private String appointmentId;

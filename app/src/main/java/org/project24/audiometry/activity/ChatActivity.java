@@ -1,9 +1,8 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity;
 
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -13,6 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
+
+import org.project24.audiometry.R;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;

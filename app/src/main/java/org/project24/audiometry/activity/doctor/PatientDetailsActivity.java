@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity.doctor;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,6 +7,9 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
+
+import org.project24.audiometry.activity.ChatActivity;
+import org.project24.audiometry.R;
 
 public class PatientDetailsActivity extends AppCompatActivity {
 

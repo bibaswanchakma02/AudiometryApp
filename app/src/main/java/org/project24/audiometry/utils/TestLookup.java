@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.utils;
 
 import android.content.Context;
 import android.content.Intent;

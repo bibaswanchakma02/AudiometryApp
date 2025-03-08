@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

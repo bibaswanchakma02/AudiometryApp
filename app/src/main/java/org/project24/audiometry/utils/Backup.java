@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.utils;
 
 import android.Manifest;
 import android.app.Activity;
@@ -10,6 +10,9 @@ import android.os.Build;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
+import org.project24.audiometry.R;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
