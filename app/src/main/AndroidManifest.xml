@@ -18,6 +18,12 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".AcceptedDoctorList"
+            android:exported="false" />
+        <activity
+            android:name=".ChatActivity"
+            android:exported="false" />
+        <activity
             android:name=".PatientDetailsActivity"
             android:exported="false" />
         <activity

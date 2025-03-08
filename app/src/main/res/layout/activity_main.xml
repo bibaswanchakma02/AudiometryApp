@@ -77,6 +77,21 @@
                 android:gravity="center"
                 android:elevation="5dp"/>
 
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Appointments"
+                android:paddingStart="30sp"
+                android:paddingEnd="30sp"
+                android:paddingTop="20sp"
+                android:paddingBottom="20sp"
+                android:layout_marginBottom="15sp"
+                android:onClick="gotoAcceptedAppointments"
+                android:background="@drawable/button_background"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:elevation="5dp"/>
+
         <Button
             android:id="@+id/main_startTest"
             android:visibility="gone"

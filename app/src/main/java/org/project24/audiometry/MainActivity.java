@@ -147,6 +147,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void gotoAcceptedAppointments(View view){
+        Intent intent = new Intent(this, AcceptedDoctorList.class);
+        startActivity(intent);
+    }
+
     /**
      * goes to PerformTest activity
      * @param view- current view

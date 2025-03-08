@@ -2,6 +2,7 @@
 <resources>
 
     <color name="orange">#FF8000</color>
+    <color name="light_orange">#F2B57C</color>
     <color name="primary_dark">#ffc96500</color>
     <color name="black">#000000</color>
     <color name="white">#FFFFFF</color>
@@ -17,9 +18,11 @@
     <color name="lightblue">#FF2196F3</color>
     <color name="light_green">#FF81C784</color>
     <color name="cherryred">#FFE53935</color>
-    <color name="light_red">#FFEF9A9A</color>
-    <color name="light_blue">#FF90CAF9</color>
+    <color name="light_red">#F16060</color>
+    <color name="light_blue">#59A4DD</color>
     <color name="sap_green">#FF4CAF50</color>
+    <color name="yellow">#FFEF05</color>
+    <color name="lemon_yellow">#E9F468</color>
 
 
 
