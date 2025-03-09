@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity.doctor;
 
 import android.os.Bundle;
 import android.widget.Toast;
@@ -7,6 +7,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.database.*;
+
+import org.project24.audiometry.activity.patient.Appointment;
+import org.project24.audiometry.activity.patient.AppointmentsAdapter;
+import org.project24.audiometry.R;
+
 import java.util.ArrayList;
 import java.util.List;
 

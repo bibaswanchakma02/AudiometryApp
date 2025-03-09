@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.project24.audiometry.PerformTest.testFrequencies;
+import static org.project24.audiometry.activity.PerformTest.testFrequencies;
+
+import org.project24.audiometry.activity.PerformTest;
 
 public class FileOperations {
 

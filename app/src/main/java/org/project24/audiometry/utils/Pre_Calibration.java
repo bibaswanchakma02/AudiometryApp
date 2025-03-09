@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.utils;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,10 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.project24.audiometry.activity.patient.MainActivity;
+import org.project24.audiometry.activity.PerformTest;
+import org.project24.audiometry.R;
 
 
 public class Pre_Calibration extends AppCompatActivity {

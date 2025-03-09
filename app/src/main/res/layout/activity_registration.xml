@@ -9,7 +9,7 @@
     android:gravity="center"
     android:orientation="vertical"
     android:padding="15dp"
-    tools:context=".Registration">
+    tools:context=".activity.Registration">
 
   <ImageView
       android:id="@+id/imageView"

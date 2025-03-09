@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,6 +24,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.project24.audiometry.activity.doctor.DoctorActivity;
+import org.project24.audiometry.activity.patient.MainActivity;
+import org.project24.audiometry.R;
 
 public class Login extends AppCompatActivity {
 

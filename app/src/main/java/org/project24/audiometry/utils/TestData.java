@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.utils;
 
 import android.content.Context;
 import android.content.Intent;
@@ -38,7 +38,9 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static org.project24.audiometry.PerformTest.testFrequencies;
+import static org.project24.audiometry.activity.PerformTest.testFrequencies;
+
+import org.project24.audiometry.R;
 
 public class TestData extends AppCompatActivity {
     int index;
@@ -65,7 +67,7 @@ public class TestData extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context=this;
-        allSavedTests=TestLookup.getAllSavedTests(this);
+        allSavedTests= TestLookup.getAllSavedTests(this);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         getWindow().setStatusBarColor(getResources().getColor(R.color.green,getTheme()));
 

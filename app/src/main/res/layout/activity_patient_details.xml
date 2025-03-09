@@ -62,6 +62,19 @@
         app:backgroundTint="@color/green"
         app:cornerRadius="8dp"
         app:rippleColor="@color/sap_green"
+        android:layout_marginBottom="16dp"
+        android:elevation="4dp"
+        android:stateListAnimator="@null"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/startChatButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Chat"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/light_red"
+        app:cornerRadius="8dp"
+        app:rippleColor="@color/sap_green"
         android:elevation="4dp"
         android:stateListAnimator="@null"/>
 </LinearLayout>

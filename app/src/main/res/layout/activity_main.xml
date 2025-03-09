@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:gravity="center_vertical"
     android:background="@color/white"
-    tools:context=".MainActivity"
+    tools:context=".activity.patient.MainActivity"
     android:orientation="vertical">
 
 
@@ -72,6 +72,21 @@
                 android:paddingBottom="20sp"
                 android:layout_marginBottom="15sp"
                 android:onClick="gotoDoctorList"
+                android:background="@drawable/button_background"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:elevation="5dp"/>
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:text="Appointments"
+                android:paddingStart="30sp"
+                android:paddingEnd="30sp"
+                android:paddingTop="20sp"
+                android:paddingBottom="20sp"
+                android:layout_marginBottom="15sp"
+                android:onClick="gotoAcceptedAppointments"
                 android:background="@drawable/button_background"
                 android:layout_gravity="center"
                 android:gravity="center"

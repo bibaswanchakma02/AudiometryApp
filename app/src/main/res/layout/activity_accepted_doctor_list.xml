@@ -1,0 +1,69 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="@color/white">
+
+    <!-- Appointment Status -->
+    <TextView
+        android:id="@+id/appointmentStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status: Pending"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:textColor="@color/black"
+        android:padding="8dp"
+        android:background="@drawable/rounded_background"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Doctor Name -->
+    <TextView
+        android:id="@+id/doctorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Doctor: Not Assigned"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_gravity="center"
+        android:padding="8dp"
+        android:background="@drawable/rounded_background"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:layout_marginBottom="24dp"/>
+
+    <!-- Start Test Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/startTestButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Test"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/blue"
+        app:cornerRadius="8dp"
+        app:rippleColor="@color/light_blue"
+        android:visibility="gone"
+        android:elevation="4dp"
+        android:stateListAnimator="@null"
+        android:layout_marginBottom="16dp"/>
+
+    <!-- Chat with Doctor Button -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/chatButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Chat with Doctor"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/light_red"
+        app:cornerRadius="8dp"
+        app:rippleColor="@color/sap_green"
+        android:visibility="gone"
+        android:elevation="4dp"
+        android:stateListAnimator="@null"/>
+</LinearLayout>

@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.utils;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -9,6 +9,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.preference.PreferenceManager;
 
 import com.github.mikephil.charting.BuildConfig;
+
+import org.project24.audiometry.R;
 
 public class GithubStar {
     public static void setAskForStar(Context context, boolean askForStar){

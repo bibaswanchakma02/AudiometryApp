@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:gravity="center_vertical"
     android:background="@color/white"
-    tools:context=".DoctorActivity"
+    tools:context=".activity.doctor.DoctorActivity"
     android:orientation="vertical">
 
     <ImageView

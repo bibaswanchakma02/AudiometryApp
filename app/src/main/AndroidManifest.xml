@@ -18,29 +18,35 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".PatientDetailsActivity"
+            android:name=".activity.patient.AcceptedDoctorList"
             android:exported="false" />
         <activity
-            android:name=".AcceptedAppointmentsActivity"
+            android:name=".activity.ChatActivity"
             android:exported="false" />
         <activity
-            android:name=".DoctorProfile"
+            android:name=".activity.doctor.PatientDetailsActivity"
             android:exported="false" />
         <activity
-            android:name=".DoctorList"
+            android:name=".activity.doctor.AcceptedAppointmentsActivity"
             android:exported="false" />
         <activity
-            android:name=".DoctorActivity"
+            android:name=".activity.doctor.DoctorProfile"
             android:exported="false" />
         <activity
-            android:name=".DoctorsAppointmentActivity"
+            android:name=".activity.patient.DoctorList"
             android:exported="false" />
         <activity
-            android:name=".Registration"
+            android:name=".activity.doctor.DoctorActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.doctor.DoctorsAppointmentActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.Registration"
             android:exported="false"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".Login"
+            android:name=".activity.Login"
             android:exported="true"
             android:theme="@style/AppTheme">
             <intent-filter>
@@ -50,7 +56,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.patient.MainActivity"
             android:exported="true"
             android:screenOrientation="fullSensor">
 
@@ -62,56 +68,56 @@
             <!-- </intent-filter> -->
         </activity>
         <activity
-            android:name=".PerformSingleTest"
+            android:name=".activity.PerformSingleTest"
             android:label="@string/title_activity_performSingleTest"
             android:screenOrientation="fullSensor">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".activity.patient.MainActivity" />
         </activity>
         <activity
-            android:name=".PerformTest"
+            android:name=".activity.PerformTest"
             android:label="@string/title_activity_performTest"
             android:screenOrientation="fullSensor">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".activity.patient.MainActivity" />
         </activity>
         <activity
-            android:name=".Pre_Calibration"
+            android:name=".utils.Pre_Calibration"
             android:label="@string/title_calibration"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activity.patient.MainActivity"
             android:screenOrientation="fullSensor">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".activity.patient.MainActivity" />
         </activity>
         <activity
-            android:name=".Instructions"
+            android:name=".utils.Instructions"
             android:label="@string/title_activity_info"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activity.patient.MainActivity"
             android:screenOrientation="fullSensor">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".activity.patient.MainActivity" />
         </activity>
         <activity
-            android:name=".TestLookup"
+            android:name=".utils.TestLookup"
             android:label="@string/title_activity_test_lookup"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activity.patient.MainActivity"
             android:screenOrientation="fullSensor">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".MainActivity" />
+                android:value=".activity.patient.MainActivity" />
         </activity>
         <activity
-            android:name=".TestData"
+            android:name=".utils.TestData"
             android:label="@string/title_activity_test_data"
-            android:parentActivityName=".TestLookup"
+            android:parentActivityName=".utils.TestLookup"
             android:screenOrientation="fullSensor">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".TestLookup" />
+                android:value=".utils.TestLookup" />
         </activity>
     </application>
 

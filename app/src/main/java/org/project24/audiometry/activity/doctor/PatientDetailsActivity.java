@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity.doctor;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,12 +6,16 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import com.google.firebase.auth.FirebaseAuth;
+
+import org.project24.audiometry.activity.ChatActivity;
+import org.project24.audiometry.R;
 
 public class PatientDetailsActivity extends AppCompatActivity {
 
     private TextView patientNameText, appointmentDateText, appointmentTimeText;
-    private Button startTestButton, previousReportButton;
-    private String patientId, appointmentId;
+    private Button startTestButton, previousReportButton, startChatButton;
+    private String patientId, appointmentId, doctorId;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,6 +27,7 @@ public class PatientDetailsActivity extends AppCompatActivity {
         appointmentTimeText = findViewById(R.id.appointmentTimeText);
         startTestButton = findViewById(R.id.startTestButton);
         previousReportButton = findViewById(R.id.previousReportButton);
+        startChatButton = findViewById(R.id.startChatButton);
 
         // Get patient details from intent
         Intent intent = getIntent();
@@ -32,22 +37,20 @@ public class PatientDetailsActivity extends AppCompatActivity {
         String date = intent.getStringExtra("date");
         String time = intent.getStringExtra("time");
 
+        // Get doctorId from Firebase
+        doctorId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         // Set text values
         patientNameText.setText("Patient: " + patientName);
         appointmentDateText.setText("Date: " + date);
         appointmentTimeText.setText("Time: " + time);
 
-        // Button Click Events
-/*        startTestButton.setOnClickListener(v -> {
-            Intent testIntent = new Intent(PatientDetailsActivity.this, AudiometryTestActivity.class);
-            testIntent.putExtra("patientId", patientId);
-            startActivity(testIntent);
-        });*/
-
-      /*  previousReportButton.setOnClickListener(v -> {
-            Intent reportIntent = new Intent(PatientDetailsActivity.this, PreviousReportsActivity.class);
-            reportIntent.putExtra("patientId", patientId);
-            startActivity(reportIntent);
-        });*/
+        // Start Chat Button Click Event
+        startChatButton.setOnClickListener(v -> {
+            Intent chatIntent = new Intent(PatientDetailsActivity.this, ChatActivity.class);
+            chatIntent.putExtra("doctorId", doctorId);
+            chatIntent.putExtra("patientId", patientId);
+            startActivity(chatIntent);
+        });
     }
 }

@@ -1,4 +1,4 @@
-package org.project24.audiometry;
+package org.project24.audiometry.activity.patient;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -36,6 +36,17 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import org.project24.audiometry.activity.PerformSingleTest;
+import org.project24.audiometry.activity.PerformTest;
+import org.project24.audiometry.R;
+import org.project24.audiometry.utils.TestLookup;
+import org.project24.audiometry.activity.Login;
+import org.project24.audiometry.utils.Backup;
+import org.project24.audiometry.utils.FileOperations;
+import org.project24.audiometry.utils.GithubStar;
+import org.project24.audiometry.utils.Instructions;
+import org.project24.audiometry.utils.Pre_Calibration;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -91,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
                 result -> {
                       File intData = new File(Environment.getDataDirectory() + "//data//" + this.getPackageName());
                       if (result.getData()!=null && result.getData().getData()!=null) Backup.zipExtract(this, intData, result.getData().getData());
-                      PerformTest.gain=FileOperations.readGain(this);
+                      PerformTest.gain= FileOperations.readGain(this);
                       //Toast.makeText(this,"Gain: "+PerformTest.gain,Toast.LENGTH_LONG).show();
                       checkShowInvisibleButtons();
                 });
@@ -144,6 +155,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void gotoDoctorList(View view){
         Intent intent = new Intent(this, DoctorList.class);
+        startActivity(intent);
+    }
+
+    public void gotoAcceptedAppointments(View view){
+        Intent intent = new Intent(this, AcceptedDoctorList.class);
         startActivity(intent);
     }
 
