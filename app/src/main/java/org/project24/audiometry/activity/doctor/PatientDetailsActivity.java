@@ -4,9 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.project24.audiometry.activity.ChatActivity;
 import org.project24.audiometry.R;
@@ -51,6 +55,13 @@ public class PatientDetailsActivity extends AppCompatActivity {
             chatIntent.putExtra("doctorId", doctorId);
             chatIntent.putExtra("patientId", patientId);
             startActivity(chatIntent);
+        });
+
+        startTestButton.setOnClickListener(v->{
+            DatabaseReference testRef = FirebaseDatabase.getInstance().getReference("testRequests").child(appointmentId);
+            testRef.setValue("pending");
+
+            Toast.makeText(PatientDetailsActivity.this, "Test Request Sent to patient", Toast.LENGTH_SHORT).show();
         });
     }
 }

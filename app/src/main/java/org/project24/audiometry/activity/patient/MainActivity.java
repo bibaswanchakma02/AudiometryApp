@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -58,7 +59,8 @@ public class MainActivity extends AppCompatActivity {
     TextView textView;
     FirebaseUser user;
     FirebaseDatabase database;
-    DatabaseReference usersRef;
+    DatabaseReference usersRef, testRequestRef;
+    String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +135,46 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Listens for audiometry test requests from the doctor.
+     */
+    private void listenForTestRequests(){
+        testRequestRef = database.getReference("testRequests").child(userId);
+        testRequestRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    String status = snapshot.child("status").getValue(String.class);
+                    if("pending".equals(status)){
+                        showTestRequestDialog();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.e("Firebase", "Error fetching test requests", error.toException());
+            }
+        });
+    }
+
+    private void showTestRequestDialog(){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("New Test Request")
+                .setMessage("Are you ready to start the test?")
+                .setPositiveButton("Yes", (dialog, which) -> {
+                    testRequestRef.child("status").setValue("in_progress");
+
+                    Intent intent = new Intent(this, PerformTest.class);
+                    intent.putExtra("Action", "Test");
+                    startActivity(intent);
+                })
+                .setNegativeButton("No", (dialog, which) -> {
+                    testRequestRef.child("status").setValue("declined");
+                    dialog.dismiss();
+                })
+                .show();
+    }
     private void checkShowInvisibleButtons(){
         Button startTest = findViewById(R.id.main_startTest);
         Button startSingleTest = findViewById(R.id.main_startSingleTest);
