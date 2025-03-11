@@ -1,5 +1,9 @@
 package org.project24.audiometry.activity;
 
+
+
+import android.content.Intent;
+
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -8,10 +12,12 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.*;
+
 
 import org.project24.audiometry.R;
 
@@ -21,16 +27,19 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+
 public class ChatActivity extends AppCompatActivity {
 
     private RecyclerView chatRecyclerView;
     private EditText messageInput;
-    private ImageButton sendButton, phoneCallButton, videoCallButton;
+    private ImageButton sendButton, voiceCallButton, videoCallButton;
     private TextView chatHeader;
     private List<Message> messageList;
     private ChatAdapter chatAdapter;
     private DatabaseReference chatRef, userRef;
     private String doctorId, patientId, chatId, currentUserId, recipientId;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +49,7 @@ public class ChatActivity extends AppCompatActivity {
         chatRecyclerView = findViewById(R.id.chatListView);
         messageInput = findViewById(R.id.messageInput);
         sendButton = findViewById(R.id.sendButton);
-        phoneCallButton = findViewById(R.id.phoneCallButton);
+        voiceCallButton = findViewById(R.id.phoneCallButton);
         videoCallButton = findViewById(R.id.videoCallButton);
         chatHeader = findViewById(R.id.chatHeader);
 
@@ -60,11 +69,22 @@ public class ChatActivity extends AppCompatActivity {
         chatRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         chatRecyclerView.setAdapter(chatAdapter);
 
+
         fetchRecipientFullName(); // Fetch and display full name
         loadMessages();
 
         sendButton.setOnClickListener(v -> sendMessage());
+        videoCallButton.setOnClickListener(v -> {
+            Intent intent = new Intent(ChatActivity.this, VideoCallActivity.class);
+            startActivity(intent);
+        });
+        voiceCallButton.setOnClickListener(v -> {
+            Intent intent = new Intent(ChatActivity.this, VoiceCallActivity.class);
+            startActivity(intent);
+        });
     }
+
+
 
     private void fetchRecipientFullName() {
         if (recipientId == null) {
@@ -140,4 +160,7 @@ public class ChatActivity extends AppCompatActivity {
         SimpleDateFormat sdf = new SimpleDateFormat("hh:mm a", Locale.getDefault());
         return sdf.format(new Date(timestamp));
     }
+
+
+
 }

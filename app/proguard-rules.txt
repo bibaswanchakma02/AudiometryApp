@@ -16,3 +16,11 @@
 #   public *;
 #}
 -dontobfuscate
+
+-keep class io.agora.** { *; }
+-keep class com.google.** { *; }
+-keep class androidx.** { *; }
+-keepattributes *Annotation*
+-dontwarn io.agora.**
+-dontwarn com.google.**
+-dontwarn androidx.**

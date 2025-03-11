@@ -53,7 +53,9 @@
             app:tint="@android:color/white" />
     </LinearLayout>
 
-    <!-- Chat Messages List with Bubble Design -->
+
+
+    <!-- Chat Messages List -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/chatListView"
         android:layout_width="match_parent"
@@ -108,4 +110,5 @@
             app:rippleColor="@color/light_blue"
             android:layout_marginStart="8dp"/>
     </LinearLayout>
+
 </LinearLayout>
