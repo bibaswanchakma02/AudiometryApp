@@ -26,7 +26,7 @@
         android:layout_gravity="center"
         android:layout_marginBottom="20sp"
         android:gravity="end"
-        android:text="@string/app_name"
+        android:text="Doctor View"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:textStyle="bold" />
@@ -61,7 +61,7 @@
             android:orientation="vertical"
             android:layout_marginTop="20sp">
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="@string/view_appointments"
@@ -69,14 +69,14 @@
                 android:paddingEnd="10sp"
                 android:paddingTop="20sp"
                 android:paddingBottom="20sp"
-                android:layout_marginBottom="15sp"
+                android:layout_marginBottom="10sp"
                 android:onClick="gotoAppointments"
-                android:background="@drawable/button_background"
+                android:backgroundTint="@color/blue"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:elevation="5dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="@string/list_of_patient"
@@ -85,13 +85,13 @@
                 android:paddingTop="20sp"
                 android:paddingBottom="20sp"
                 android:onClick="gotoAcceptedPatients"
-                android:layout_marginBottom="15sp"
-                android:background="@drawable/button_background"
+                android:layout_marginBottom="10sp"
+                android:backgroundTint="@color/blue"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:elevation="5dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="@string/telemedicine"
@@ -99,30 +99,30 @@
                 android:paddingEnd="10sp"
                 android:paddingTop="20sp"
                 android:paddingBottom="20sp"
-                android:layout_marginBottom="15sp"
-                android:background="@drawable/button_background"
+                android:layout_marginBottom="10sp"
+                android:backgroundTint="@color/blue"
                 android:layout_gravity="center"
                 android:gravity="center"
                 android:elevation="5dp" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_background"
+                android:backgroundTint="@color/blue"
                 android:elevation="5dp"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:layout_marginBottom="15sp"
+                android:layout_marginBottom="10sp"
                 android:paddingStart="20sp"
                 android:paddingTop="20sp"
                 android:paddingEnd="10sp"
                 android:paddingBottom="20sp"
                 android:text="@string/title_activity_info" />
 
-            <Button
+            <com.google.android.material.button.MaterialButton
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_background"
+                android:backgroundTint="@color/blue"
                 android:elevation="5dp"
                 android:gravity="center"
                 android:layout_gravity="center"
