@@ -6,6 +6,7 @@ android {
     compileSdk 34
 
     defaultConfig {
+        applicationId "org.project24.audiometry"
         minSdkVersion 23
         targetSdkVersion 33
         versionCode 190
@@ -42,6 +43,7 @@ dependencies {
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
     implementation 'io.agora.rtc:full-sdk:4.2.1'
+
 
 
 }
