@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Paint;
+import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,6 +35,8 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
 import java.text.DateFormat;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -314,6 +318,23 @@ public class TestData extends AppCompatActivity {
 
         chart.draw(canvas);
 
+        // Get current user UID
+        String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        String timestamp = String.valueOf(System.currentTimeMillis());
+
+        // Generate digital signature hash
+        String rawData = userId + "_" + timestamp;
+        String digitalSignature = generateSHA256(rawData);
+
+        //digital signature
+        Paint paint = new Paint();
+        paint.setColor(Color.BLACK);
+        paint.setTextSize(20);
+        paint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.ITALIC));
+
+
+        canvas.drawText("Digitally signed by: " + userId, 20, chartHeight - 40, paint);
+
         pdfDocument.finishPage(page);
 
         File downloadsDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
@@ -335,6 +356,25 @@ public class TestData extends AppCompatActivity {
     }
 
 
+    private String generateSHA256(String input) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            byte[] hash = digest.digest(input.getBytes(StandardCharsets.UTF_8));
+            StringBuilder hexString = new StringBuilder();
+            for (byte b : hash) {
+                String hex = Integer.toHexString(0xff & b);
+                if (hex.length() == 1) hexString.append('0');
+                hexString.append(hex);
+            }
+            return hexString.toString();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
+
+
     private void uploadTestDataToFirebase() {
 
         String userId = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -354,6 +394,11 @@ public class TestData extends AppCompatActivity {
             thresholdsRight.add(testResults[0][i] - calibrationArray[i]);
         }
 
+        // Digital signature generation
+        long timestamp = System.currentTimeMillis();
+        String signatureInput = userId + "_" + timestamp;
+        String digitalSignature = generateSHA256(signatureInput);
+
         // Create a map for storing data in Realtime Database
         HashMap<String, Object> testResultData = new HashMap<>();
         testResultData.put("testDate", testDate);
@@ -362,6 +407,8 @@ public class TestData extends AppCompatActivity {
         testResultData.put("thresholdsRight", thresholdsRight);
         testResultData.put("hearingLevelLeft", getHearingLevel(testResults[1]));
         testResultData.put("hearingLevelRight", getHearingLevel(testResults[0]));
+        testResultData.put("timestamp", timestamp); // Required for verifying
+        testResultData.put("digitalSignature", digitalSignature); // 🔐 Important
 
         DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         database.child("users").child(userId).child("testResults").push()

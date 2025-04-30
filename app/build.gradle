@@ -19,6 +19,7 @@ android {
     compileSdk 34
 
     defaultConfig {
+        applicationId "org.project24.audiometry"
         minSdkVersion 23
         targetSdkVersion 33
         versionCode 190
@@ -62,6 +63,7 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     implementation 'com.google.firebase:firebase-perf'
     implementation 'io.agora.rtm:rtm-sdk:1.4.5'
+
 
 
 }
