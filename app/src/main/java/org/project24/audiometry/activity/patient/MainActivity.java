@@ -49,6 +49,8 @@ import org.project24.audiometry.utils.GithubStar;
 import org.project24.audiometry.utils.Instructions;
 import org.project24.audiometry.utils.Pre_Calibration;
 
+import io.agora.rtm.RtmClient;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,12 +62,16 @@ public class MainActivity extends AppCompatActivity {
     FirebaseUser user;
     FirebaseDatabase database;
     DatabaseReference usersRef, testRequestRef;
+    private RtmClient rtmClient;
+
+//    private boolean isLoggedIn = false;
     String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();

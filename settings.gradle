@@ -1,2 +1,11 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+        google()  // critical for Firebase plugins
+        mavenCentral()
+    }
+}
+
 include ':app'
 rootProject.name = "project24"
+
